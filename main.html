@@ -1,0 +1,106 @@
+<HTML> 
+	<HEAD> 
+		<TITLE>Help File</TITLE>
+		<META NAME="Author" CONTENT="Daniel Armyr">
+	</HEAD>
+	<BODY>
+		<H1>This is the help file</H1> 
+		<UL>
+			<LI><H2>Introduction:</H2><BR>
+				This program visualizes gravitational forces on an astronomical scale. In its current form, 
+				the program positions a number of particles in random locations. Each particle gets a random 
+				mass and initial velocity. When the simulation is started, all particles will interact with each 
+				other, causing them to move the same way astronomical bodies do in space.<P>
+			</LI>
+			<LI><H2>How to:</H2><BR>
+				When the program is started, a popup window allows the user to enter some settings that affect 
+				how the particles are positioned etc. The default values given work for me, but they are at 
+				most a recommendation, and something to get started with. The options available are:<P>
+				<UL>
+					<LI>
+						Average Mass: The particles average mass. More mass means more gravity, so heavier particles will attract their smaller neighbours. The unit used is an arbitrary unit of mass.<P>
+					</LI>
+					<LI>
+						Galaxy size: This value defines the area over which to spread the particles. The default value is approximately how large a galaxy you can see from the initial camera position.<P>
+					</LI>
+					<LI>
+						Number of particles: Quite straightforward. This tells how many particles there are to begin with. More particles look a lot nicer, and the only thing that sets the limit is computer speed. On an Athlon 550, things start to get a little slow around 300.<P>
+					</LI>
+					<LI>
+						Type of Galaxy: This sets if the particles should be places in a plane or spread out in all 3 spatial dimensions. Spherical looks very nice, but planar is a better approximation for the stereotypical galaxy or solar system.<P>
+					</LI>
+				</UL>
+				The program itself has a set of buttons to the right in the window. There is a brief description of each mode in he program, however, here is a more detailed instruction:<P>
+				<UL>
+					<LI>
+						Pause: This checkbox pauses and resumes the simulation. Note however, that only the simulation is affected. The graphics system and rendering continue to function. This means that you can still move the camera etc. while in paused mode. <P>
+					</LI>
+					<LI>
+						Show Kinematics: This checkbox toggles a graphical representation of the kinematics of the system. Enabling kinematics means that two short lines will be drawn on each particle. One is yellow and shows the instantaneous velocity of the particle. The velocity is measured in reference to a "fixed" coordinate system that the program uses. Users should be aware that there does not exist such a thing as a "fix" point in space. The other is white and shows the instantaneous vectorial acceleration.<P>
+					</LI>
+					<LI>
+						The four radio buttons below are used to control the camera. They all function in a very similar fashion. You click one of the buttons to select how you wish to move the camera. Then you drag the mouse in the view-port to actually move the camera.<P>     
+						<UL> 
+							<LI>
+								Strafe: Moves the camera side to side as well as up and down. The camera gets the directions from its own orientation, i.e., no matter how the camera is oriented, strafing it will always move it in the exact direction you drag the mouse. <P>
+							</LI>
+							<LI>
+								Rotate: This control orbits the camera. This means that the camera will rotate around a certain point white constantly turning so as to maintain the centre of orbit fixed. If the camera is currently tracking an object (see below), the camera will orbit around that object. If no object is being tracked, the camera orbits around the arbitrary point in space that I have defined as the origin.<P>
+							</LI>
+							<LI>
+								Screw: This mode allows you to move the camera back and forth, as well as rolling it left and right. You use it to zoom in, zoom out, or if you feel that what looks like up isn't really.<P>
+							</LI>
+							<LI>
+								Track: This mode is a bit different from the others. When in track-mode, you can click on any particle in the view-port. The camera will then move so as to maintain that object fixed in the view-port. This is very good for visualizing the complex motional patterns that for example the planets exhibit as seen from earth. If you click where there is no planet, the camera will stop tracking all objects and come to rest.<P>
+							</LI>
+						</UL>
+					</LI>
+					<LI>
+						Finally there is a large scrollbar on the far right. This scrollbar sets the gravitational constant. It is very handy to fine-tune a budding solar system. If the particles appear to be drifting away, a slight raise of the gravity can give the desired result.<P>
+					</LI>
+				</LI>
+			</LI>
+		</UL> 
+		</LI>
+		<LI>
+			<H2>Features</H2><P>
+				The program features a very open design, as all limitations not absolutely necessary have been removed. Some notable features are: 
+				<UL>
+					<LI>A universe approximately 10^14 units across. The scaling is such that one light second is approximately 100 units.<P></LI>
+					<LI>The number of particles interaction is limited only be memory and processor speed<P></LI>
+					<LI>True 3d engine allows the totally accurate visualization of any planetary system.<P></LI>
+				</UL>
+				Additionally, the code is made to easily allow a number of upgrades: 
+				<UL>
+					<LI>Multiple view-ports allow the user to see any phenomenon from different angles simultaneously.</P></LI>
+					<LI>Multiple cameras can be bound to one view-port allowing the rendering directly to stereographic images in most formats, including red-green images, or random-point stereograms.<P></LI>
+				</UL>
+			</LI>						
+		</LI>
+		<LI>
+			<H2>Version History</H2><P>
+			<UL>
+				<LI>1.0) Version to be presented. Applet can now be restarted.<P></LI>
+				<LI>0.99) Finally, the program is useable, the documentation written, and so far no bugs. Phew. Haha, and I thought the interface part was the lesser half of programming.<P></LI>
+				<LI>0.91) Javadoc documentation finished. It took three days, and I am going to have nightmares in javadoc code. Have you the slightest idea how much 2500 lines of code actually is? I am sorry; I have to throw up....<P></LI>
+				<LI>0.9) Mouse interface revised. Suddenly the program looks and feels almost professional.<P></LI>
+				<LI>0.81) Flat shading removed. For some reason the colours looked really ugly.<P></LI>
+				<LI>0.8) Flat shading implemented. Release is coming close...<P></LI> 
+				<LI>0.7) Collision detection implemented.<P></LI>
+				<LI>0.5) Just updated the program to reflect the requests of my first group of beta testers. People really do have ideas how to improve the programs interface. Implementing it is hard but rewarding.<P></LI>
+				<LI>0.3) Mouse interface implemented. Need some work, but it'll do.<P></LI> 
+				<LI>0.2) OK, I have some form of gravity working. The particles move around almost correctly, but they seem to crash into each other all the time. I need collision-detection.<P></LI>
+				<LI>0.1) Wow, this might actually work. The 3d engine is up and running in wire-frame mode, and the particles just move around randomly, but it looks pretty cool. It needs a mouse interface.<P></LI>
+			</UL>
+   		</UL>
+		<HR>           
+		<DIV ALIGN="center">
+			<FONT SIZE=-1>
+				(c)2001 Irrbloss Productions.<BR>
+				The author retains all copyrights to this help file as well as the rest of the program and any 
+				peripherals. Neither this document nor the program may be distributed in any form except with the 
+				<A HREF="mailto:daniel.armyr@home.se">author's</A> written permission.
+			</FONT>
+		</DIV>
+	</BODY>
+</HTML>

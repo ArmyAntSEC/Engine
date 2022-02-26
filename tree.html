@@ -1,0 +1,32 @@
+<HTML> 
+	<HEAD> 
+		<TITLE>Program Structure</TITLE>
+		<META NAME="Author" CONTENT="Daniel Armyr">
+	</HEAD>
+	<BODY>
+		This is how the program is structured. Use it to see what classes are important, and as a quick overview.<BR>
+		<UL>
+			<LI>Engine, the main applet.</LI>
+			<UL>
+				<LI>View, the view-port.</LI>
+				<LI>Buttons, the input.</LI>
+				<LI>Info, status info.</LI>
+				<LI>Help, some instructions.</LI>
+				<LI>Framer, handles redrawing.</LI>
+				<LI>Clock, handles physical time.</LI>
+				<LI>Scene, the world.</LI>
+				<UL>
+					<LI>Dummy, a dummy.</LI>
+					<LI>Sphere, round.</LI>
+					<LI>Part, moves around.</LI>
+					<UL>
+						<LI>Throws: CollisionEvent</LI>
+					</UL>
+					<LI>Star, dots in the distance.</LI>
+					<LI>Tripod, a coordinate system.</LI>
+					<LI>Camera, everyone needs a viewpoint.</LI>
+				</UL>
+			</UL>
+		</UL>
+	</BODY>
+</HTML>		

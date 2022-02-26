@@ -1,0 +1,37 @@
+<STYLE TYPE="text/css">
+
+	A {
+		color: #00B400;
+	}
+	A:link {
+	 	color: #00B400;
+	}
+	A:visited {
+		color: #009600;
+	}
+	BODY {
+		text-align: left;
+		font-size: small;
+		background: black;
+		color: rgb( 130, 130, 130 );
+		margin: 2em 10%;
+	}
+	HR {
+		width: 75%;
+	}
+	H1 {
+		font-size: x-large;
+	}
+	EM {
+		font-style: italic;
+		color: #47AA47;
+	}
+	P.lft {
+		margin: 0em;
+		text-align: left;
+	}
+	P.rght {
+		margin: 0em;
+		text-align: right;
+	}
+</STYLE>
