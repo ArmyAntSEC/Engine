@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.color.*;
 
 /**
 * This class is the parent for all shapes. It includes some general methods for calculations that shapes 

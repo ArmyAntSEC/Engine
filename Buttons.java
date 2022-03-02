@@ -1,7 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.applet.*;
-import java.net.*;
 
 /**
 * The Buttons class handles the input from the user. It contains a variety of buttons and 
@@ -59,9 +57,7 @@ public class Buttons extends Panel implements ActionListener, AdjustmentListener
     private View view;
     private Clock clock;
     private Scene scene;
-    private Engine engine;
-    private AppletContext context;
-    private URL helpURL;
+    private Engine engine;    
 	
     /** 
  	* Constructs a <code>Buttons</code> object. 
@@ -71,14 +67,12 @@ public class Buttons extends Panel implements ActionListener, AdjustmentListener
  	* @param con The current AppletContext. It will be used to display the help
  	* @param helpU The complete URL to the help files.
  	*/
-    public Buttons ( View v, Clock s, Scene c, Engine e, AppletContext con, URL helpU )
+    public Buttons ( View v, Clock s, Scene c, Engine e )
     {
 	view = v;
 	clock = s;
 	scene = c;
-	engine = e;
-	context = con;
-	helpURL = helpU;
+	engine = e;	
 
 	modeButtons = new CheckboxGroup();
 
@@ -129,7 +123,7 @@ public class Buttons extends Panel implements ActionListener, AdjustmentListener
     {
 	if ( e.getSource() == help ) {
 	    try {
-		context.showDocument( helpURL , "_blank" );
+			//Do nothing
 	    } catch( Exception ex ) {
 		//Can't be bothered
 	    }
@@ -160,33 +154,26 @@ public class Buttons extends Panel implements ActionListener, AdjustmentListener
 	    //modeButtons.setSelectedCheckbox ( null ); //Does not appear necessary.
 	} else if ( e.getSource() == pause ) {
 	    if ( pause.getState() ) {  //Took away an == true
-		clock.setActive ( false );
-		context.showStatus( "Simulation paused" );
+		clock.setActive ( false );		
 		//view.setCursor ( new Cursor ( Cursor.WAIT_CURSOR ) );
 	    } else if ( !pause.getState() ) { //took away an == false
-		clock.setActive ( true );
-		context.showStatus( "Simulation resumed" );	       
+		clock.setActive ( true );		
 		//view.setCursor ( new Cursor ( Cursor.DEFAULT_CURSOR ) );
 	    }
 	    //modeButtons.setSelectedCheckbox ( null ); //Does not appear necessary.
 	} else if ( e.getSource() == track ) {
-	    view.setMouseMode ( "Track" );
-	    context.showStatus( "Tracking Mode" );
+	    view.setMouseMode ( "Track" );	    
 	    view.setCursor ( new Cursor ( Cursor.CROSSHAIR_CURSOR ) );
 	} else if ( e.getSource() == strafe ) {
-	    view.setMouseMode ( "Strafe" );
-	    context.showStatus( "Move Mode" );
+	    view.setMouseMode ( "Strafe" );	    
 	    view.setCursor ( new Cursor ( Cursor.HAND_CURSOR ) );
 	} else if ( e.getSource() == rotate ) {
-	    view.setMouseMode ( "Rotate" );
-	    context.showStatus( "Orbit Mode" );
+	    view.setMouseMode ( "Rotate" );	    
 	    view.setCursor ( new Cursor ( Cursor.MOVE_CURSOR ) );
 	} else if ( e.getSource() == screw ) {
-	    view.setMouseMode ( "Screw" );
-	    context.showStatus( "Screw Mode" );
+	    view.setMouseMode ( "Screw" );	    
 	    view.setCursor ( new Cursor ( Cursor.NW_RESIZE_CURSOR ) );
-	} else {
-	    context.showStatus ( "Engine/actionPerformed: Unhandled button event." );
+	} else {	    
 	}                                      	
     }
 

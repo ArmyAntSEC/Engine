@@ -1,6 +1,4 @@
-import java.math.*;
 import java.awt.*;
-import java.awt.color.*;
 import java.util.*;
 
 /**
@@ -22,8 +20,7 @@ Fixed, but added O(n) searching of vector. Unnecesary.
 
 public class Solar implements Scene
 {
-    private Vector objects; //All dynamic particles
-    private int nO; //number of dynamic particles. Deprecated.
+    private Vector<Part> objects; //All dynamic particles    
     private Star[] stars; //Some stars
     
     //private Tripod tri; //And a cordinate system. Apparently confusing.
@@ -46,7 +43,7 @@ public class Solar implements Scene
 	
 	//System.out.println ( "Size: " + objects.size() + "\n" + objects );	
 
-	objects = new Vector(); //Start making objects
+	objects = new Vector<Part>(); //Start making objects
 
 	//init ( scinfo );
 
@@ -221,7 +218,7 @@ public class Solar implements Scene
 	private void sortO ( ) 
     {
 	//Bubble sort routine. Hopefully obsolete
-	Object temp;
+	Part temp;
 	boolean swap;
 	for ( int i = 0; i < objects.size() - 1; i++) {
 	    swap = false;
@@ -256,7 +253,7 @@ public class Solar implements Scene
     public int getNO () 
     {
 	System.out.println( "Scene/getNO: Deprecated" );
-	return objects.size();;
+	return objects.size();
     }
     public void printStatus()
     {

@@ -1,10 +1,5 @@
 import java.awt.*;
-import java.applet.*;
-import java.math.*;
-import java.util.*;
-import java.awt.event.*;
-import java.applet.*;
-import java.net.*;
+import javax.swing.*;
 
 //Not made to be inherited, in case someone tries....
 //This applet is made to run in a 500*720 window for the moment. Other sizes will be supported later.
@@ -31,7 +26,7 @@ import java.net.*;
 * facility. Licensee represents and warrants that it will not use or<BR>
 * redistribute the Software for such purposes.<BR>
 */
-public final class Engine extends Applet 
+public final class Engine extends Panel 
 {
 
     private Clock clock; //Handles physical time
@@ -53,11 +48,7 @@ public final class Engine extends Applet
     * special, just a miracle of bureaucracy.
     */
     public void init()
-    {
-	resize ( 720, 500 ); //In case someone tries to mess with the size.
-
-	AppletContext app = getAppletContext(); //Find out some stuff about our surroundings.
-	app.showStatus( "Begin Initializing Applet" ); //Talk to the user.
+    {	
 	
 	w = new WinDesc ( 500, 500 ); //Sets the current size.
 	scene = new Solar( ); //Make the main scene.
@@ -81,19 +72,14 @@ public final class Engine extends Applet
 	//Make and start a separate thread to repaint the window.
 	framer = new Framer ( framePeriod, this );
 
-	try {
-	    URL helpURL = new URL ( getCodeBase() + "help.html" ); //URL to the help
-	    buttons = new Buttons ( view, clock, scene, this, app, helpURL ); //Make an input panel
-	} catch ( MalformedURLException ex ) {	  
-	    System.out.println ( "Engine/<init>: Bad URL" );
-	    System.exit(-1);
-	}
+	
+	buttons = new Buttons ( view, clock, scene, this ); //Make an input panel	
 
 	// Ask for some info from user.
 	Query fr = new Query( scene, "Setup" );
 	SceneInfo scinf = new SceneInfo();
 	fr.init ( 250, 250, scinf );
-	fr.show( );
+	fr.setVisible( true );
 
 	//Standard background colour. I want it black, but then 
 	//MVM makes the info panels black as well.
@@ -135,10 +121,7 @@ public final class Engine extends Applet
 	Part.toggleKin ( false ); //Need a clean start with the static vars.
 
 	clock.start(); //Let's rock.
-	framer.start();
-
-
-	app.showStatus( "Eng/main: Program initiated" ); //Now tell the user.
+	framer.start();	
 	
     }
 	
@@ -158,11 +141,22 @@ public final class Engine extends Applet
 
     public void destroy()
     {
-	//This returns errors. Strange.
-	//clock.destroy(); 
-	//framer.destroy();
     }
-
+	 
+	public static void main(String[] args) {
+        //... Create an initialize the applet.
+        Engine theApplet = new Engine();
+        theApplet.init();         // Needed if overridden in applet
+        //theApplet.start();        // Needed if overridden in applet
+        
+        //... Create a window (JFrame) and make applet the content pane.
+        JFrame window = new JFrame("Sample Applet and Application");
+        window.setContentPane(theApplet);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.pack();              // Arrange the components.
+        //System.out.println(theApplet.getSize());
+        window.setVisible(true);    // Make the window visible.
+    }
 }
 
 

@@ -1,4 +1,3 @@
-import java.awt.color.*;
 import java.awt.*;
 
 /** 
@@ -11,15 +10,12 @@ import java.awt.*;
 public class Part extends Sphere implements Inertial
 {
     private Vector3 v; //Velocity
-    private Vector3 a; //Acceleration
-    private long lTime;
+    private Vector3 a; //Acceleration    
     private boolean active = false;
     private double m; //Mass
-    private static double G = .001; //Universal gravity constant
-    private static double cutoff = 5;
+    private static double G = .001; //Universal gravity constant    
     private boolean focus = false;
-    private static boolean kin = false;
-    private Color baseColor; //Deprecated
+    private static boolean kin = false;    
    
    	/** 
      * Creates a new particle. Newly created particles have no initial velocity, and are not affected by the 
@@ -35,9 +31,7 @@ public class Part extends Sphere implements Inertial
 	    throw ( new NegativeMassException() );
 	}
 	//Set color depending on mass
-	col = massColor ( mass );
-	//We need a backup.
-	baseColor = col; //Deprecated.
+	col = massColor ( mass );		
 
 	v = new Vector3( 0, 0, 0 );
 	a = new Vector3( 0, 0, 0 );

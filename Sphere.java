@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.math.*;
 
 public class Sphere extends Primitive {
 

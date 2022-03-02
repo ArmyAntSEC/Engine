@@ -7,14 +7,11 @@ import java.awt.*;
 * reference point in debugging.
 */
 public class Tripod extends Primitive
-{
-    private int s;
-
+{    
   	/** Creates a new Tripod. */
     public Tripod ( Vector3 pos, int size )
     {
-	super( pos, null );
-	s = size;
+	super( pos, null );	
     }
     
     /**  Tells the Tripod to redraw itself. */

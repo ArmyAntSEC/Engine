@@ -91,10 +91,6 @@ public abstract class Camera implements Location
      */
     public void orbit( double x, double y, double z )
     {
-	Vector3 oldFrame = new Vector3( frameVector );
-	
-	double s = 3.14;
-
 	up.rotA( x, dir );
 	right.rotA( x, dir );
 	frameVector.rotA( x, dir );
@@ -112,9 +108,7 @@ public abstract class Camera implements Location
      *Rolls the camera around current view axel. 
      */
     public void roll ( double a )
-    {
-	Vector3 oldFrame = new Vector3( frameVector );
-
+    {	
 	up.rotA( a, dir );
 	right.rotA( a, dir );
 	frameVector.rotA( a, dir );
